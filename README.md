@@ -1,10 +1,41 @@
 # GIT 学习笔记
 
+## 比较操作
+
 - `git diff --cached` 比较缓存区的变化
+
+## 提交操作
+
 - `git commit -m xxxx` 提交更新
 - `git commit -a -m xxxx` 跳过使用暂存区域提交更新
+
+## 移除操作
+
 - `git rm fileName` 删除文件(需要在暂存区,会删除文件)
 - `git rm --force fileName` 移除之前修改过/已经放到暂存区的文件(需要在暂存区,会删除文件)
 - `git rm --cached fileName` 移除暂存区文件(保存在磁盘,并不想让 Git 继续跟踪)
 - `git rm -r dirName` 删除文件夹(需要在暂存区)
+
+## 重命名操作
+
 - `git mv oldFileName newFileName` 重命名文件
+
+## 查看操作
+
+- `git log` 查看版本
+- `git log -p -number` 查看(每次/-number)提交所引入的差异
+- `git log --stat` 查看每次提交的简略信息
+
+  **常用选项**
+  | 选项 | 说明 |
+  | :-------------: | :---------------------------------------------------------------------------------------------------------: |
+  | -p | 按补丁格式显示每个提交引入的差异。 |
+  | --stat | 显示每次提交的文件修改统计信息。 |
+  | --shortstat | 只显示 --stat 中最后的行数修改添加移除统计。 |
+  | --name-only | 仅在提交信息后显示已修改的文件清单。 |
+  | --name-status | 显示新增、修改、删除的文件清单。 |
+  | --abbrev-commit | 仅显示 SHA-1 校验和所有 40 个字符中的前几个字符。 |
+  | --relative-date | 使用较短的相对时间而不是完整格式显示日期（比如“2 weeks ago”）。 |
+  | --graph | 在日志旁以 ASCII 图形显示分支与合并历史。 |
+  | --pretty | 使用其他格式显示历史提交信息。可用的选项包括 oneline、short、full、fuller 和 format（用来定义自己的格式）。 |
+  | --oneline | `--pretty=oneline --abbrev-commit` 合用的简写。 |
