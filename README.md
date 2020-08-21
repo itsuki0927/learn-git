@@ -65,3 +65,35 @@
 - `git fetch <remote>` 访问远程仓库，从中拉取所有你还没有的数据
 
 - `git push <remoteName> <branchName>` 推送到远程分支
+
+## 打标签
+
+Git 支持两种标签: 轻量标签与附注标签
+
+### 轻量标签
+
+像一个不会改变的分支 -- 它只是某个特定提交的引用
+
+### 附注标签
+
+存储在 Git 数据库中的一个完整对象,它们是可以被校验的.
+
+### 命令
+
+- `git tag` 列出已有标签
+
+- `git tag <tagName>` 创建轻量标签
+
+- `git tag -a <tagName> -m <message>` 创建附注标签
+
+- `git tag -a <tagName> <hashCode>` 给指定 commit 打标签
+
+- `git show <tagName>` 查看指定标签
+
+- `git push <remoteName> --tags` 将全部标签推送到远程仓库
+
+- `git push <remoteName> --delete <tagName>` 删除远程标签
+
+- `git tag -d <tagName>` 删除指定标签
+
+- `git push <remoteName> <tagName>` 将指定标签推送到远程仓库
