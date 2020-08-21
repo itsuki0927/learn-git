@@ -1,8 +1,24 @@
 # GIT 学习笔记
 
+## 三棵树 Three trees
+
+### 工作区
+
+写代码的文件目录
+
+### 暂存区
+
+git add 工作区的变更内容 -> 暂存区
+
+### 仓库
+
+git commit 暂存区的变更内容 -> 仓库
+
 ## 比较操作
 
-- `git diff --cached` 比较缓存区的变化
+- `git diff` 比较工作区与暂存区的差异
+
+- `git diff --cached` 比较暂存区与仓库的差异
 
 ## 提交操作
 
@@ -100,4 +116,36 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ## 分支
 
+### merge
+
+merge: 合并分支会让两个分支的每一次提交都按照提交时间排序,并且会将两个分支的最新一次 commit 点进行合并成一个新的 commit,
+最终的分支树呈现非整条线性直线的形式
+
+### rebase 变基
+
+变基: 当前执行 rebase 分支的所有基于原分支提交点之后的 commit 打散成一个个的 patch,
+并重新生成一个新的 commit hash 值,再次基于原分支目前的最新 commit 点上进行提交,
+并不根据两个分支上实际的每次提交的时间点排序,rebase 完成后,
+切到基分支进行合并到另一个时也不会生成一个新的 commit 点,可以保持整个 Git 状态树的完美线性
+
+![rebaseImage](https://git-scm.com/book/en/v2/images/basic-rebase-2.png)
+
+原理: 首先找到这两个分支(当前分支`experiment`,变基操作的目标基底分支`master`)的最近共同祖先`C2`,
+然后对比当前分支相对于该祖先的历次提交,提交相对应的修改并存为临时文件,然后将当然分支执行目标基底`C3`,
+最后以此将之前另存为临时文件的修改依序应用.
+
+简而言之: 这里就是提取`C4`中引入的补丁和修改,然后在`C3`的基础上应用一次.
+
+### 命令
+
+- `git branch <branchName>` 创建分支
+
+- `git branch` 列出所有分支(--merged 已经合并分支/--no-merged 未合并分支)
+
+- `git branch -d <branchName>` 删除指定分支
+
 - `git checkout -b <branchName>` 创建并切换到该分支
+
+- `git checkout <branchName>` 切换到指定分支
+
+- `git merge <branchName>` 合并到当前分支
