@@ -54,4 +54,14 @@
 
 - `git remote -v` 显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL
 
-- `git remote add <shortName> <url>` 添加远程仓库
+- `git remote add <remoteName> <url>` 添加远程仓库
+
+- `git remote show <remote>` 查看某个远程仓库
+
+- `git remote rename <oldRemoteName> <newRemoteName>` 远程仓库重命名
+
+- `git remote remove <remoteName>` 远程仓库移除
+
+- `git fetch <remote>` 访问远程仓库，从中拉取所有你还没有的数据
+
+- `git push <remoteName> <branchName>` 推送到远程分支
