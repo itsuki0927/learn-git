@@ -97,3 +97,7 @@ Git 支持两种标签: 轻量标签与附注标签
 - `git tag -d <tagName>` 删除指定标签
 
 - `git push <remoteName> <tagName>` 将指定标签推送到远程仓库
+
+## 分支
+
+- `git checkout -b <branchName>` 创建并切换到该分支
