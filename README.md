@@ -100,4 +100,4 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ## 分支
 
-- `git branch -b <branchName>` 创建分支并切换到该分支
+- `git checkout -b <branchName>` 创建并切换到该分支
