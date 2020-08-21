@@ -12,7 +12,7 @@
 ## 移除操作
 
 - `git rm fileName` 删除文件(需要在暂存区,会删除文件)
-- `git rm --force fileName` 移除之前修改过/已经放到暂存区的文件(需要在暂存区,会删除文件)
+- `git rm --force fileName` 移除之前修改过/已经放到暂存区的文件(会删除文件)
 - `git rm --cached fileName` 移除暂存区文件(保存在磁盘,并不想让 Git 继续跟踪)
 - `git rm -r dirName` 删除文件夹(需要在暂存区)
 
@@ -39,3 +39,13 @@
   | --graph | 在日志旁以 ASCII 图形显示分支与合并历史。 |
   | --pretty | 使用其他格式显示历史提交信息。可用的选项包括 oneline、short、full、fuller 和 format（用来定义自己的格式）。 |
   | --oneline | `--pretty=oneline --abbrev-commit` 合用的简写。 |
+
+[更多 log 配置文档](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
+
+## 撤销操作
+
+- `git commit --amend` 重新提交(漏掉了几个文件没有添加,或者提交信息写错了,第二次提交将替换第一次提交的结果)
+
+- `git reset HEAD fileName` 取消暂存区的文件
+
+- `git checkout -- fileName` 撤销对文件的修改,将它还原成上次提交的样子
