@@ -12,19 +12,38 @@
 试图合并两个分支时,如果顺着一个分支走下去能够到达另一个分支,那么 Git 在合并两者的时候,只会简单的将指针向前推进(指针右移),
 因为这种情况下的合并操作没有需要解决的分歧--这就叫做"快进"
 
-## 三棵树 Three trees
+### 三棵树 Three trees
 
-### 工作区
+#### 工作区
 
 写代码的文件目录
 
-### 暂存区
+#### 暂存区
 
-git add 工作区的变更内容 -> 暂存区
+相当于一个存档
 
-### 仓库
+`git add`: 工作区的变更内容 -> 暂存区
 
-git commit 暂存区的变更内容 -> 仓库
+#### 仓库
+
+存放数据的地方,HEAD 指向当前版本
+
+`git commit`: 暂存区的变更内容 -> 仓库
+
+### reset 和 checkout 的区别
+
+1. reset 是**移动 HEAD 指向的分支**
+2. checkout 是**移动 HEAD**
+
+![originalImg](https://wac-cdn.atlassian.com/dam/jcr:b02e7b60-742a-449d-921d-53c32410576d/git-sequence-transparent.png?cdnVersion=1193)
+
+**checkout**
+
+![checkoutImg](https://wac-cdn.atlassian.com/dam/jcr:73e231c7-ddee-4f32-94d6-a3e31e835690/git-checkout-transparent.png?cdnVersion=1193)
+
+**reset**
+
+![resetImg](https://wac-cdn.atlassian.com/dam/jcr:29e29d3d-dddd-480b-afd9-77169a7b0230/git-reset-transparent.png?cdnVersion=1193)
 
 ## 保存
 
@@ -136,11 +155,15 @@ Git 支持两种标签: 轻量标签与附注标签
 
 - `git blame -C <fileName>` -C 选项检测从其他文件中移动或复制的行。这将报告行的原始作者，而不是移动或复制行的最后一个作者。
 
-## 撤销
+## Undo
 
 ### 检出 Checkout
 
-<!-- TODO: -->
+- `git checkout .`、`git checkout <filename>` 将暂存区文件替换工作区文件。
+
+- `git checkout <commitId>` 检出
+
+- `git checkout HEAD .`、`git checkout HEAD <file>` 将 HEAD 指向的版本库文件同时替换暂存区和工作区文件。
 
 ### 清除 clean
 
