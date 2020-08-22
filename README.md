@@ -194,11 +194,15 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ### 重回 Reset
 
-- `git commit --amend` 重新提交(漏掉了几个文件没有添加,或者提交信息写错了,第二次提交将替换第一次提交的结果)
+- `git reset --hard <commitId>` 回退版本(更新工作区、暂存区、仓库)
 
-- `git reset HEAD <fileName>` 取消暂存区的文件
+- `git reset --mixed <commitId>` 回退版本(默认选项,更新暂存区、工作区)
 
-- `git checkout -- <fileName>` 撤销对文件的修改,将它还原成上次提交的样子
+- `git reset --soft <commitId>` 回退版本(更新仓库)
+
+- `git reset --hard HEAD^` 回退到上一个版本
+
+- `git reset --hard HEAD^<number>` 回退 number 个版本
 
 ### 移除 Rm
 
@@ -211,7 +215,7 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ### Commit --amend
 
-<!-- TODO: -->
+- `git commit --amend` 重新提交(漏掉了几个文件没有添加,或者提交信息写错了,第二次提交将替换第一次提交的结果)
 
 ### Rebase
 
