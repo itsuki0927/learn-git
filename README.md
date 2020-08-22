@@ -190,7 +190,17 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ### Revert
 
-<!-- TODO: -->
+#### 基本概念
+
+在当然提交后面,新增一次提交,抵消掉上一次提交导致的所有变化
+
+#### 命令
+
+- `git reset HEAD` revert 上次 commit
+
+- `git reset --no-edit HEAD` 不会出现编辑 commit message
+
+- `git reset -n/--no-commit HEAD` 不会自动 commit
 
 ### 重回 Reset
 
