@@ -216,9 +216,18 @@ Git 支持两种标签: 轻量标签与附注标签
 
 ### 移除 Rm
 
-- `git rm <fileName></fileName>` 删除文件(需要在暂存区,会删除文件)
-- `git rm --force <fileName>` 移除之前修改过/已经放到暂存区的文件(会删除文件)
+#### 基本概念
+
+git 索引中删除被跟踪的文件
+
+#### 命令
+
+- `git rm <fileName>` 删除文件(需要在暂存区,会删除文件)
+
+- `git rm --force/-f <fileName>` 移除之前修改过/已经放到暂存区的文件(会删除文件)
+
 - `git rm --cached <fileName>` 移除暂存区文件(保存在磁盘,并不想让 Git 继续跟踪)
+
 - `git rm -r dirName` 删除文件夹(需要在暂存区)
 
 ## 重写
