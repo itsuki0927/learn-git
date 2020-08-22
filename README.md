@@ -45,6 +45,17 @@
 
 ![resetImg](https://wac-cdn.atlassian.com/dam/jcr:29e29d3d-dddd-480b-afd9-77169a7b0230/git-reset-transparent.png?cdnVersion=1193)
 
+### rm / git rm 删除之后怎么恢复
+
+#### 使用 rm 删除文件
+
+这个删除恢复的前提是在你把文件添加到暂存区里了,想要恢复可以使用`git checkout -- <fileName>`
+
+#### 使用 git rm 删除文件
+
+如果用 git rm 删除文件,就相当于不仅删除了文件,而且还添加到了暂存区,需要先使用`git reset HEAD <fileName>`,
+然后在使用`git checkout -- <fileName>`就可以恢复了
+
 ## 保存
 
 ### 添加 add
@@ -165,6 +176,8 @@ Git 支持两种标签: 轻量标签与附注标签
 
 - `git checkout HEAD .`、`git checkout HEAD <file>` 将 HEAD 指向的版本库文件同时替换暂存区和工作区文件。
 
+- `git checkout -- <fileName>` 将 fileName 恢复到最近一次 add/commit(--的作用就是:区分有同名的分支)
+
 ### 清除 clean
 
 #### 基本概念
@@ -196,11 +209,11 @@ Git 支持两种标签: 轻量标签与附注标签
 
 #### 命令
 
-- `git reset HEAD` revert 上次 commit
+- `git revert HEAD` revert 上次 commit
 
-- `git reset --no-edit HEAD` 不会出现编辑 commit message
+- `git revert --no-edit HEAD` 不会出现编辑 commit message
 
-- `git reset -n/--no-commit HEAD` 不会自动 commit
+- `git revert -n/--no-commit HEAD` 不会自动 commit
 
 ### 重回 Reset
 
@@ -213,6 +226,8 @@ Git 支持两种标签: 轻量标签与附注标签
 - `git reset --hard HEAD^` 回退到上一个版本
 
 - `git reset --hard HEAD^<number>` 回退 number 个版本
+
+- `git reset <commitId> <fileName>` 回退 fileName 到指定版本
 
 ### 移除 Rm
 
