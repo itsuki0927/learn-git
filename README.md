@@ -1,5 +1,17 @@
 # GIT 学习笔记
 
+## 一些问题
+
+### commitId 的作用
+
+1. 确定提交的完整性,如果提交遭到破坏,再次提交将生成不同的校验和
+2. 作为提交的唯一 ID
+
+### 快进(fast-forward)
+
+试图合并两个分支时,如果顺着一个分支走下去能够到达另一个分支,那么 Git 在合并两者的时候,只会简单的将指针向前推进(指针右移),
+因为这种情况下的合并操作没有需要解决的分歧--这就叫做"快进"
+
 ## 三棵树 Three trees
 
 ### 工作区
@@ -23,7 +35,10 @@ git commit 暂存区的变更内容 -> 仓库
 ## 提交操作 commit
 
 - `git commit -m xxxx` 提交更新
-- `git commit -a -m xxxx` 跳过使用暂存区域提交更新
+
+- `git commit -a -m xxxx` 跳过使用暂存区域对已跟踪的文件提交更新
+
+- `git commit -am xxxx` 跳过使用暂存区域对已跟踪的文件提交更新
 
 ## 移除操作 rm
 
@@ -100,9 +115,11 @@ Git 支持两种标签: 轻量标签与附注标签
 
 - `git tag` 列出已有标签
 
+- `git tag -ln` 查看标签详细信息
+
 - `git tag <tagName>` 创建轻量标签
 
-- `git tag -a <tagName> -m <message>` 创建附注标签
+- `git tag -a(可省略) <tagName> -m <message>` 创建附注标签
 
 - `git tag -a <tagName> <hashCode>` 给指定 commit 打标签
 
@@ -113,6 +130,8 @@ Git 支持两种标签: 轻量标签与附注标签
 - `git push <remoteName> --delete <tagName>` 删除远程标签
 
 - `git tag -d <tagName>` 删除指定标签
+
+- `git checkout <tagName>` 检出标签 **没懂**
 
 - `git push <remoteName> <tagName>` 将指定标签推送到远程仓库
 
@@ -197,3 +216,26 @@ merge: 合并分支会让两个分支的每一次提交都按照提交时间排�
 - `git blame -M <fileName>` -M 选项检测同一文件中移动或复制的行。这将报告行的原始作者，而不是移动或复制行的最后一个作者。
 
 - `git blame -C <fileName>` -C 选项检测从其他文件中移动或复制的行。这将报告行的原始作者，而不是移动或复制行的最后一个作者。
+
+## 清除 clean
+
+### 基本概念
+
+`git checkout`、`git reset`命令对之前添加到 Git 跟踪索引的文件进行操作,
+而`git clean`命令对未跟踪的文件进行操作。
+
+### 命令
+
+- `git clean -n` 提醒哪些文件会被删除
+
+- `git clean -dn` 提醒哪些文件/文件夹会被删除
+
+- `git clean -f` 删除当前目录下所有没被追踪的文件
+
+- `git clean -df` 删除当前目录下所有没被追踪的文件/文件夹
+
+- `git clean -f <path>` 删除指定目录下所有没被追踪的文件
+
+- `git clean -x` 删除所有没被最终的文件(包括.gitignore 忽略的文件)
+
+- `git clean -di` 交互式会话删除
