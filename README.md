@@ -183,3 +183,17 @@ merge: 合并分支会让两个分支的每一次提交都按照提交时间排�
 - `git stash branch <branchName>` 用 stash 的修改创建一个新的分支,创建成功后删除此 stash
 
 - `git stash branch <branchName> <stashName>` 指定 stashName 的修改创建一个新的分支,创建成功后删除此 stash
+
+## 责怪 Blame
+
+- `git blame <fileName>` fileName 进行 blame
+
+- `git blame -L start,end <fileName>` fileName 进行 blame 限制 start,end 行
+
+- `git blame -e <fileName>` -e 显示邮箱
+
+- `git blame -w <fileName>` -w 忽略空格修改
+
+- `git blame -M <fileName>` -M 选项检测同一文件中移动或复制的行。这将报告行的原始作者，而不是移动或复制行的最后一个作者。
+
+- `git blame -C <fileName>` -C 选项检测从其他文件中移动或复制的行。这将报告行的原始作者，而不是移动或复制行的最后一个作者。
