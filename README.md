@@ -56,6 +56,15 @@
 如果用 git rm 删除文件,就相当于不仅删除了文件,而且还添加到了暂存区,需要先使用`git reset HEAD <fileName>`,
 然后在使用`git checkout -- <fileName>`就可以恢复了
 
+#### pull 和 fetch 的区别
+
+1. fetch 等同于拉取最新的代码到一个`FETCH_HEAD`
+2. pull = fetch + merge FETCH_HEAD
+3. pull --rebase = fetch + rebase FETCH_HEAD
+4. fetch 是安全的命令,因为`git fetch`将下载远程内容，并且不会改变本地存储库的状态
+5. pull 是不安全的命令,因为`git pull`将下载远程内容，并立即尝试更改本地状态以匹配该内容,
+   可能会导致本地存储仓库处于冲突状态。
+
 ## 保存
 
 ### 添加 add
@@ -350,7 +359,20 @@ git 索引中删除被跟踪的文件
 
 - `git push -f` 强制推送远程(一般如果使用了`git commit --amend`、`git rebase`都会出现此情况)
 
-### 拉去 Pull
+### 拉取 Pull
+
+#### 基本概念
+
+首先运行 `git fetch`,它从指定的远程存储库下载内容.然后执行`git merge`
+将远程内容引用合并到新的本地合并提交中
+
+#### 命令
+
+- `git pull <remoteName> <branchName>` 将远程分支拉取下来并与本地分支合并
+
+- `git pull --rebase <remoteName> <branchName>` 将远程分支拉取下来并与本地分支变基
+
+- `git pull --no-commit <remoteName>` 与默认效果相似,但是不会创建一个 commit 记录
 
 <!-- TODO: -->
 
