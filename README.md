@@ -340,7 +340,15 @@ git 索引中删除被跟踪的文件
 
 ### 推送 Push
 
-<!-- TODO: -->
+- `git push <remoteName> <branchName>` 将分支推送到远程
+
+- `git push <remoteName> <tagName>` 将标签推送到远程
+
+- `git push <remoteName> --all` 将所有分支推送到远程
+
+- `git push <remoteName> --tags` 将所有标签推送到远程
+
+- `git push -f` 强制推送远程(一般如果使用了`git commit --amend`、`git rebase`都会出现此情况)
 
 ### 拉去 Pull
 
