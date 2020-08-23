@@ -278,9 +278,30 @@ git 索引中删除被跟踪的文件
 
 简而言之: 这里就是提取`C4`中引入的补丁和修改,然后在`C3`的基础上应用一次.
 
+#### 命令
+
+`git rebase -r/--rebase-merges <branchName>` 让 commit 保持原样,不会修改提交信息,仍然是分支历史记录中的单个提交。
+
 ### Rebase -i
 
-<!-- TODO: -->
+#### 基本概念
+
+交互式 rebase
+
+```js
+// Commands:
+//  p, pick <commit> = 提交commit
+//  r, reword <commit> = 提交commit,edit提交信息
+//  e, edit <commit> = use commit, but stop for amending
+//  s, squash <commit> = 与上一个commit合并成一个commit,并且edit提交信息
+//  f, fixup <commit> = 与上一个commit合并成一个commit,使用上一个commit提交信息来展示
+//  x, exec <command> = run command (the rest of the line) using shell
+//  b, break = 卡在这里 (继续则需要使用'git rebase --continue' // NOTE: 没用)
+//  d, drop <commit> = 删除这次commit
+//  l, label <label> = label current HEAD with a name
+//  t, reset <label> = reset HEAD to a label
+//  m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+```
 
 ### Reflog
 
