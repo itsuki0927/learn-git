@@ -329,7 +329,14 @@ git 索引中删除被跟踪的文件
 
 ### 填充 Fetch
 
-<!-- TODO: -->
+#### 基本概念
+
+将远程分支最新内容拉取到本地,但是 fetch 之后是看不到内容的,此时会多出一个`FETCH_HEAD`分支,
+这个分支就保存着 FETCH 后的内容
+
+#### 命令
+
+- `git fetch <remoteName> <branchName>` 填充数据
 
 ### 推送 Push
 
